@@ -1,35 +1,49 @@
-# 📄 DocuWhiZ – PDF Q&A Chatbot
+# 📄 DocuWhiZ – AI PDF Q&A Chatbot
 
-DocuWhiZ is a full-stack PDF-based chatbot powered by Gemini AI. Users can upload PDFs, and ask questions in a chat interface. The bot responds with contextual answers extracted from the document. Built with Go (Gin), React, and Vite, with streaming Gemini responses and markdown rendering.
+**DocuWhiZ** is an open-source, full-stack chatbot that lets you **chat with your PDFs**. Built with Go and React, it uses the **Gemini API** to provide accurate, streaming, markdown-rendered answers from your documents.
+
+> 🧠 Upload any PDF. Ask anything. Get AI-powered contextual answers instantly.
 
 ---
 
 ## ✨ Features
 
-- 📤 Upload any PDF
-- 💬 Chat with the document using AI
-- ⚡ Fast, streaming answers from Gemini
-- 🧠 Context-aware replies based on uploaded document
-- 📄 Frontend built with React + Vite
-- 🚀 Backend in Go with Gin framework
-- 📦 Containerized using Podman or Docker
+- 📤 Upload and process any PDF document
+- 💬 Chat in real time with document context
+- ⚡ Gemini API streaming response support
+- 🧠 Smart question-answering with LLM context
+- 🖥️ Frontend: React + Vite (Markdown-rendered UI)
+- 🧩 Backend: Go + Gin (PDF parsing & chat memory)
+- 📦 Fully containerized (Podman / Docker)
+- 🧾 Deployed at: [https://docuwhiz.onrender.com](https://docuwhiz.onrender.com)
 
 ---
 
-## 🗂️ Project Structure
+## 🧠 Tech Stack
+
+- 🔹 Go 1.21+ with Gin Web Framework
+- ⚛️ React 18 + Vite
+- 🧠 Gemini Pro API
+- 📄 Poppler (`pdftotext`) for PDF parsing
+- 🐳 Podman or Docker for deployment
+- 🧪 Markdown for chat formatting
+
+---
+
+## 📁 Project Structure
 
 ```
-.
-├── backend
-│   ├── main.go
-│   ├── routes.go
-│   ├── utils.go
-│   └── ...
-├── frontend
+docuwhiz/
+├── backend/
+│   ├── main.go          # Gin server entry
+├── frontend/
 │   ├── index.html
 │   └── src/
 │       ├── App.jsx
-│       └── components/
+│       ├── components/
+│       │   ├── ChatBox.jsx
+│       │   └── FileUpload.jsx
+│       └── styles/
 ├── Dockerfile
 ├── .env
 └── README.md
@@ -37,21 +51,21 @@ DocuWhiZ is a full-stack PDF-based chatbot powered by Gemini AI. Users can uploa
 
 ---
 
-## 🚀 Running Locally
+## 🚀 Getting Started
 
-### Prerequisites
+### ✅ Prerequisites
 
 - [Go 1.21+](https://golang.org)
 - [Node.js 18+](https://nodejs.org)
-- `pdftotext` installed (`sudo apt install poppler-utils`)
+- [`pdftotext`](https://poppler.freedesktop.org/) (`sudo apt install poppler-utils`)
 - [Podman](https://podman.io) or Docker
 
 ---
 
-### 1️⃣ Clone Repo
+### 1️⃣ Clone the Repo
 
 ```bash
-git clone https://github.com/yourname/docuwhiz.git
+git clone https://github.com/zedai00/docuwhiz.git
 cd docuwhiz
 ```
 
@@ -59,40 +73,36 @@ cd docuwhiz
 
 ### 2️⃣ Set Environment Variables
 
-Create a `.env` file:
+Create a `.env` file in the root directory:
 
-```
-GEMINI_API_KEY=your_google_gemini_key
+```env
+GEMINI_API_KEY=your_google_gemini_api_key
 PORT=8000
 ```
 
 ---
 
-### 3️⃣ Run Locally with Podman
+### 3️⃣ Build & Run with Podman (or Docker)
 
 ```bash
 podman build -t docuwhiz .
 podman run -p 8000:8000 --env-file .env -v $(pwd)/uploads:/app/uploads docuwhiz
 ```
 
----
-
-### 4️⃣ Access in Browser
-
-Visit: [http://localhost:8000](http://localhost:8000)
+Visit 👉 [http://localhost:8000](http://localhost:8000)
 
 ---
 
-## 🧪 Testing Locally Without Podman
+## 🧪 Development Setup
 
-### Backend
+### Backend (Go + Gin)
 
 ```bash
 cd backend
 go run main.go
 ```
 
-### Frontend
+### Frontend (React + Vite)
 
 ```bash
 cd frontend
@@ -102,37 +112,41 @@ npm run dev
 
 ---
 
-## 🌐 Deployment
+## 🌐 Deployment Options
 
-You can deploy on:
+You can deploy DocuWhiZ on:
 
-- Fly.io (⚠️ needs credit card)
-- Railway
-- Render
-- DigitalOcean App Platform
-- Self-hosted VPS
+| Platform                                      | Free Plan | Notes                       |
+| --------------------------------------------- | --------- | --------------------------- |
+| [Render](https://render.com)                  | ✅        | Used in production          |
+| [Railway](https://railway.app)                | ✅        | Easy CI/CD setup            |
+| [Fly.io](https://fly.io)                      | ⚠️        | Needs credit card           |
+| [DigitalOcean](https://www.digitalocean.com/) | ✅        | Self-hosted or App Platform |
+| Any VPS (e.g., EC2, Hetzner)                  | ✅        | Use Docker + nginx          |
 
 ---
 
 ## 🛠️ TODO
 
-- [ ] Add authentication
-- [ ] Allow multiple PDF chat history
-- [ ] Improve error handling
-- [ ] Add file size limit & restrictions
+- [ ] User authentication & session history
+- [ ] Support multiple PDFs
+- [ ] Add chat memory across PDFs
+- [ ] Upload limit handling
+- [ ] Mobile responsive layout
 
 ---
 
-## 🧠 Built With
+## 👨‍💻 Maintainers
 
-- 🟦 Go + Gin
-- ⚛️ React + Vite
-- 🧠 Gemini API
-- 🧪 Markdown + Streaming
-- 🐳 Podman
+Built by **Zed**
+🌐 [LinkedIn](https://linkedin.com/in/zedai00) | 🐙 [GitHub](https://github.com/zedai00)
 
 ---
 
 ## 📄 License
 
-MIT © 2025 Zeeshan & Team
+MIT License © 2025 Zed
+
+---
+
+> 🚀 Try it live: [https://docuwhiz.onrender.com](https://docuwhiz.onrender.com)
