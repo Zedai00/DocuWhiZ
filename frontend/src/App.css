@@ -1,0 +1,40 @@
+.app-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.left-panel,
+.right-panel {
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.left-panel {
+  width: 30%;
+  border-right: 1px solid #333;
+  background: #1e1e1e;
+}
+
+.right-panel {
+  width: 70%;
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    height: auto;
+  }
+}
