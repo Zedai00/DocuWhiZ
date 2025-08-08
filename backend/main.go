@@ -62,6 +62,7 @@ func main() {
 	// 2. Serve the entire 'assets' directory from the '/assets' URL path.
 	// This will correctly match requests like '/assets/index-DPuVEiKz.js'.
 	router.Static("/assets", "./dist/assets")
+	router.StaticFile("/favicon.ico", "./dist/favicon.ico")
 
 	// 3. The NoRoute handler is a fallback for SPA routing.
 	// Any non-API, non-static-file URL will serve the main index.html file.
